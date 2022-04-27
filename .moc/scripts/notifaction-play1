@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+notify-send "Title: $1
+Artist: $2"

@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+
+import os 
+from sys import argv
+
+
+
+os.system(f'''notify-send "Title : {argv[1]} 
+Name: {argv[2]}"''')

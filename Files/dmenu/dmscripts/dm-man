@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+$(man -k . | awk '{$3="-"; print $0}' | dmenu -c -l 20 -p 'Search for:' | awk '{print $2, $1}' | tr -d '()' | awk 'NF>1{print $NF}' | xargs -I {} konsole -e man {})

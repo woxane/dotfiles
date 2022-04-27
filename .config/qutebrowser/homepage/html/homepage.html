@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script src="https://kit.fontawesome.com/ad056275be.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Home</title>
+    <link rel="stylesheet" href="../styles/homepage.css">
+    <link href="favicon.png" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+    <div id="search">
+        <input id="search-field" type="text" name="search-field"/>
+    </div>
+    <div class="container">
+        <div id="clock"></div>
+        <div class="weather-container">
+            <div class="row">
+                <div id="weather-description"class="inline"></div>
+                <div class="inline">-</div>
+                <div id="temp" class="inline"></div>
+            </div>
+        </div>
+        <div class="bookmark-container">
+            <div class="bookmark-set">
+                <div class="bookmark-title">School</div>
+                <div class="bookmark-inner-container">
+		    <a class="bookmark" href="https://pomofocus.io/">Pomofocus</a>
+                    <a class="bookmark" href="https://app.lernito.com/home" >Lernito</a>
+                    <a class="bookmark" href="https://www.kanoon.ir/Student" >Ghalamchi</a>
+                    <a class="bookmark" href="https://gama.ir/" >Gama</a>
+                </div>
+            </div>
+            <div class="bookmark-set">
+                <div class="bookmark-title">Social & Video</div>
+                <div class="bookmark-inner-container">
+          	    <i class="fa-solid fa-thumbs-up fa-5x"></i>
+                    <a class="bookmark" href="https://youtube.com/" >Youtube</a>
+		    <a class="bookmark" href="https://reddit.com">Reddit</a>
+		    <a class='bookmark' href='https://sermovie.me/'>Sermovie</a>
+		    <a class='bookmark' href='https://nyaa.si/'>Nyaa</a>
+                    <a class="bookmark" href="https://psa.one/" >PSA</a>
+                    <a class="bookmark" href="https://thepiratebay.us.org/en/" >PirateBay</a>
+                    <a class="bookmark" href="https://subscene.com/" >Subscene</a>
+                    <a class="bookmark" href="https://github.com" >GitHub</a>
+                </div>
+            </div>
+            <div class="bookmark-set">
+                <div class="bookmark-title">Linux</div>
+                <div class="bookmark-inner-container">
+		    <a class='bookmark' href='https://virgool.io/'>Virgool</a>
+                    <a class="bookmark" href="https://www.linuxtoday.com/" >LinuxToday</a>
+                    <a class="bookmark" href="https://www.linuxinsider.com/" >LinuxInsider</a>
+                    <a class="bookmark" href="https://phoronix.com/" >Phoronix</a>
+                    <a class="bookmark" href="https://www.zdnet.com/topic/linux/" >ZDNet</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Search on enter key event
+        getTime = () => {
+            let date = new Date(),
+                min = date.getMinutes(),
+                sec = date.getSeconds(),
+                hour = date.getHours();
+
+            return "" +
+                (hour < 10 ? ("0" + hour) : hour) + ":" +
+                (min < 10 ? ("0" + min) : min) + ":" +
+                (sec < 10 ? ("0" + sec) : sec);
+        }
+
+        window.onload = () => {
+            let xhr = new XMLHttpRequest();
+            // Set up the clock
+            document.getElementById("clock").innerHTML = getTime();
+            // Set clock interval to tick clock
+            setInterval( () => {
+                document.getElementById("clock").innerHTML = getTime();
+            },100);
+        }
+
+    </script>
+</body>
+</html>

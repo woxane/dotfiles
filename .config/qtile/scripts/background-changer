@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+
+
+find /home/woxane/.config/qtile/wallpaper/ -type f | shuf -n 1 | xargs -I {} xwallpaper --stretch {}

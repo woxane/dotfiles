@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+lxpolkit &
+setxkbmap -option grp:alt_shift_toggle -layout us,ir &
+xrandr --output LVDS-1 --primary --mode 1366x768 --pos 219x1080 --rotate normal --output VGA-1 --off --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal
+qtile cmd-obj -o cmd -f restart &
+find ~/Files/Wallpapers/ -type f | shuf -n 1 | xargs -I {} xwallpaper --stretch {} &
+nm-applet &
+gromit-mpx &
+udiskie -sN &
+picom --config ~/.config/picom/picom.sample.conf &
+export QT_QPA_PLATFORMTHEME=qt6ct

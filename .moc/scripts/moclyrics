@@ -1,0 +1,24 @@
+#!/bin/bash
+#this works with moc and is in the moc config
+
+choice="$1"
+track="$2"
+artist="$3"
+filepath="$4"
+
+file=$(echo "$filepath" | sed "s/\.flac$\|\.mp3$\|\.aac$\|\.m4a$\|\.ape$\|\.ogg$\|\.opus$//")
+
+
+if [ "$choice" = "gl" ]; then
+  if [ -f "$file" ]; then
+    notify-send "lyrics exist!"
+  else
+    if mediainfo "$filepath" | grep -q "Lyrics"; then
+      mediainfo "$filepath" | awk -F: "/Lyrics/ {print \$2}" | sed 's#/#\n#g' > "$file" &&
+      notify-send "$track Lyrics using `mediainfo` created" || notify-send "could not use `mediainfo` for $track"
+    else
+      notify-send "Lyrics not found in media file"
+    fi
+  fi
+fi
+

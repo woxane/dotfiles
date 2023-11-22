@@ -1,0 +1,2 @@
+ExecCommand1 = "/home/woxane/.moc/scripts/moclyrics gl %T %R %F"
+Theme = yellow_red_theme
